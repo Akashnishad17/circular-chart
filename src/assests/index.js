@@ -1,0 +1,1 @@
+export const magnifying_glass = require('./magnifying-glass.png');
