@@ -17,7 +17,7 @@ const CircularChart = () => {
     {
       id: 3,
       color: 'green',
-      title: 'PQR',
+      title: 'PQR Fsdfsd ssd',
     },
     {
       id: 4,
@@ -38,6 +38,20 @@ const CircularChart = () => {
         zIndex: zIndex,
         backgroundColor: color,
       }} 
+    >
+      {value}
+    </div>;
+  };
+
+  const renderText = (x, y, value, color, flag) => {
+    return <div
+      style={{
+        ...styles.text,
+        color: color,
+        top: x,
+        left: y,
+        transform: `translate(${flag ? -10 : 10}px, -19px)`,
+      }}
     >
       {value}
     </div>;
@@ -86,6 +100,7 @@ const CircularChart = () => {
       }
 
       element.push(renderCircularDot(nextX, nextY, 3.5, 1, 'black'));
+      element.push(renderText(nextX, nextY, data[index].title, data[index].color, nextY < size / 2));
     }
 
     return element;
@@ -128,6 +143,11 @@ const styles = {
     position: 'absolute', 
     bottom: 0, 
     right: 0,
+  },
+  text: {
+    position: 'absolute',
+    fontSize: 32,
+    fontWeight: 'bold',
   },
 };
 
